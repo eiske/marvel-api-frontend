@@ -8,7 +8,7 @@ Project is based on the creation of a website that lists of Marvel characters.
 - Download/Clone the project from this repository.
 
 ```
-https://github.com/eiske/marvel-api
+https://github.com/eiske/marvel-api-frontend
 ```
 
 - Install dependencies:
