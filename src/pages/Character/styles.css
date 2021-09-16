@@ -1,0 +1,18 @@
+div.series-container {
+  min-height: 300px;
+}
+
+section.character-detail div.series-container {
+  padding: 1rem;
+}
+
+section.character-detail div.series-container h1 {
+  text-align: center;
+}
+
+section.character-detail div.series-container a {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.8rem;
+  color: #ff0000;
+}

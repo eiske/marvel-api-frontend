@@ -1,13 +1,205 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+header.main-header {
+  background: #202020;
+  width: 100%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+header.main-header nav.nav-container section.desktop-nav-container {
+  display: block;
+  width: 100%;
+}
+
+header.main-header
+  nav.nav-container
+  section.desktop-nav-container
+  div.desktop-nav {
+  display: flex;
+  width: 100%;
+  color: #fff;
+  font-size: 0.8rem;
+  margin: auto;
+  height: 50px;
+  text-align: center;
+  max-width: 1024px;
+  position: relative;
+}
+
+header.main-header
+  nav.nav-container
+  section.desktop-nav-container
+  div.desktop-nav
+  a.desktop-logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+header.main-header
+  nav.nav-container
+  section.desktop-nav-container
+  ul.desktop-nav-list {
+  display: flex;
+  padding: 0;
+  list-style-type: none;
+  margin: auto;
+  height: 100%;
+}
+
+ul.mobile-nav-list {
+  list-style-type: none;
+  padding: 0 1rem;
+  height: 100%;
+  width: 250px;
+  margin: 0;
+}
+
+ul.mobile-nav-list li.mobile-nav-list-item {
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 10px 0px;
+}
+
+ul.mobile-nav-list li.mobile-nav-list-item a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+}
+
+header.main-header
+  nav.nav-container
+  section.desktop-nav-container
+  ul.desktop-nav-list
+  li.desktop-nav-list-item {
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 0 1rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+header.main-header
+  nav.nav-container
+  section.desktop-nav-container
+  ul.desktop-nav-list
+  li.desktop-nav-list-item
+  a.link {
+  color: inherit;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+header.main-header nav.nav-container section.mobile-nav-container {
+  display: none;
+}
+
+header.main-header
+  nav.nav-container
+  section.mobile-nav-container
+  div.mobile-nav {
+  padding: 0.8rem;
+  position: relative;
+}
+
+header.main-header
+  nav.nav-container
+  section.mobile-nav-container
+  div.mobile-nav
+  a.mobile-logo {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  width: 80px;
+}
+
+footer.main-footer {
+  background: #202020;
+  width: 100%;
+  padding: 60px 0;
+}
+
+footer.main-footer address a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: fit-content;
+  margin: auto;
+}
+
+footer.main-footer address span.copyright {
+  color: #999;
+  font-size: 0.8rem;
+  line-height: 1.2rem;
+}
+
+footer.main-footer address a span.marvel-logo {
+  width: 70px;
+}
+
+*,
+::before,
+::after {
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+ol,
+p,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+body::-webkit-scrollbar,
+body ::-webkit-scrollbar {
+  background-color: #fff;
+  width: 5px;
+}
+body::-webkit-scrollbar-corner,
+body ::-webkit-scrollbar-corner {
+  background-color: #fff;
+}
+body::-webkit-scrollbar-thumb,
+body ::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: rgb(107, 107, 107);
+  min-height: 24px;
+}
+
+div.grid {
+  display: grid;
+  overflow: hidden;
+  grid-gap: 10px;
+  max-width: 1024px;
+  margin: auto;
+  grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
+}
+
+@media screen and (max-width: 768px) {
+  header.main-header
+    nav.nav-container
+    section.desktop-nav-container
+    div.desktop-nav {
+    display: none;
+  }
+
+  header.main-header nav.nav-container section.mobile-nav-container {
+    display: block;
+  }
+
+  footer.main-footer {
+    padding: 50px 0;
+  }
+
+  div.grid {
+    grid-template-columns: repeat(auto-fit, minmax(35%, 1fr));
+  }
 }

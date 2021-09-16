@@ -1,0 +1,21 @@
+section.form-wrapper form div.form-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 700px;
+  margin: 1rem auto;
+  align-items: center;
+  padding: 1em;
+}
+
+section.form-wrapper div.search-bar {
+  max-width: 223px;
+  margin: 1rem auto;
+}
+
+section.form-wrapper form div.form-container div.button-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  max-width: 200px;
+  margin: 1em;
+}

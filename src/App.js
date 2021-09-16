@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { createStore, applyMiddleware } from "redux";
+import { Provider } from "react-redux";
+import thunk from "redux-thunk";
+import { BrowserRouter } from "react-router-dom";
+import { Router, Switch } from "react-router";
 
-function App() {
+import { history } from "./router/history";
+import Routes from "./router/routes";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+
+import marvelReducer from "./store/reducers";
+
+// const rootReducer = combineReducers({
+//   marvel: marvelReducer,
+// });
+
+const store = createStore(marvelReducer, applyMiddleware(thunk));
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <Router history={history}>
+        <BrowserRouter>
+          <Header />
+          <Switch>
+            <Routes />
+          </Switch>
+          <Footer />
+        </BrowserRouter>
+      </Router>
+    </Provider>
   );
-}
+};
 
 export default App;

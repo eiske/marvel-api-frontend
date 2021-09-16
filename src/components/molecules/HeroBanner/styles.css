@@ -1,0 +1,19 @@
+section.hero-banner div.hero-container {
+  display: flex;
+  align-items: center;
+  background-color: #151515;
+}
+
+section.hero-banner div.hero-container h1.name {
+  text-transform: uppercase;
+  font-size: 40px;
+  color: #fff;
+  margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+  section.hero-banner div.hero-container {
+    flex-direction: column;
+    justify-content: center;
+  }
+}

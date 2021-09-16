@@ -1,0 +1,8 @@
+ul.MuiList-root {
+  max-height: 200px;
+  overflow-y: scroll;
+}
+
+li.MuiListItem-gutters {
+  cursor: pointer;
+}

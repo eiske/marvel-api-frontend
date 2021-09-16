@@ -1,0 +1,13 @@
+div.serie {
+  text-align: center;
+  overflow: hidden;
+}
+
+div.serie img.serie {
+  height: 200px;
+}
+
+div.serie p.name {
+  text-align: center;
+  font-weight: 700;
+}

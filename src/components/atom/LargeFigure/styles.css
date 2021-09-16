@@ -1,0 +1,20 @@
+figure.hero-wrapper {
+  margin: 2rem 5rem 2rem 7rem;
+}
+
+figure.hero-wrapper img {
+  height: 400px;
+}
+
+@media screen and (max-width: 768px) {
+  figure.hero-wrapper {
+    margin: 2rem;
+  }
+
+  figure.hero-wrapper img {
+    height: 250px;
+  }
+  h1.name {
+    text-align: center;
+  }
+}

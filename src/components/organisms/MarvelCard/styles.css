@@ -1,0 +1,47 @@
+div.marvel-card {
+  box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 10px;
+  cursor: pointer;
+  height: 100%;
+}
+
+div.marvel-card h4.name {
+  color: #000;
+}
+
+div.marvel-card:hover {
+  opacity: 0.6;
+}
+
+div.marvel-card p.description {
+  color: #000;
+  font-size: 0.8rem;
+  padding: 5px;
+  word-break: break-word;
+}
+
+div.marvel-card h4.name {
+  text-align: center;
+}
+
+div.marvel-card div.card-thumb figure.img-wrapper {
+  margin: 0;
+  padding: 0;
+  height: 200px;
+}
+
+div.marvel-card div.card-thumb figure.img-wrapper img {
+  object-position: top center;
+  display: block;
+  margin: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  div.marvel-card div.card-thumb figure.img-wrapper {
+    height: 150px;
+  }
+}
