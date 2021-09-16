@@ -25,6 +25,4 @@ npm install
 npm run start
 ```
 
-- you can also use the yarn package manager(yarn) to install dependencies (`yarn install`) and run the app (`yarn start`)
-
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser
