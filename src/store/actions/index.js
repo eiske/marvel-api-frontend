@@ -17,7 +17,7 @@ const publicKey = "950610a07d645e102e76a039a042007e";
 const privateKey = "782f4183080e5c5d53087bb698d212346e4e5289";
 const hash = md5(ts + privateKey + publicKey);
 
-export const fetchMarvelCharacter = (offset, limit = 24) => {
+export const fetchMarvelCharacter = (offset, limit = 100) => {
   return async (dispatch) => {
     dispatch({ type: FETCH_START });
 
