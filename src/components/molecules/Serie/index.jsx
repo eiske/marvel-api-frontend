@@ -34,7 +34,6 @@ const Serie = ({ name, url }) => {
     getSerie();
   }, []);
 
-  useEffect(() => {}, []);
   return (
     <div className="serie">
       <img src={imgUrl} alt={name} className="serie" />
