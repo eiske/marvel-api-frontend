@@ -85,7 +85,12 @@ const Edit = ({
       <Header title="Edit character data" />
       {!id && !name ? (
         <div className="search-bar">
-          <SearchBar input={input} setKeyword={updateInput} clear={clear} />
+          <SearchBar
+            input={input}
+            placeholder="Edit character"
+            setKeyword={updateInput}
+            clear={clear}
+          />
           <CharacterList
             characters={filteredCharacter}
             setCharacter={setCharacter}
