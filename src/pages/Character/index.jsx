@@ -13,9 +13,7 @@ const HeroBanner = loadable(() =>
   import("../../components/molecules/HeroBanner")
 );
 
-const Serie = loadable(() =>
-  import(/* webpackPrefetch: true */ "../../components/molecules/Serie")
-);
+const Serie = loadable(() => import("../../components/molecules/Serie"));
 const Header = loadable(() => import("../../components/atom/Header"));
 
 const Character = ({
@@ -65,7 +63,7 @@ const Character = ({
                   <Serie
                     key={serie.name}
                     name={serie.name}
-                    url={serie.resourceURI}
+                    url={serie.resourceURI.replace("http", "https")}
                   />
                 ))}
               </div>
