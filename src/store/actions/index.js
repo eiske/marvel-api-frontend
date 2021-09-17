@@ -7,6 +7,8 @@ import {
   FETCH_MARVEL_CHARACTER,
   FETCH_CHARACTER,
   EDIT_CHARACTER,
+  FILTERED_CHARACTER,
+  CLEAR_FILTER,
 } from "../types";
 
 const ts = Number(new Date());
@@ -65,5 +67,17 @@ export const editCharacter = (value) => {
   return (dispatch) => {
     dispatch({ type: FETCH_START });
     dispatch({ type: EDIT_CHARACTER, payload: value });
+  };
+};
+
+export const filteredCharacter = (input) => {
+  return (dispatch) => {
+    dispatch({ type: FILTERED_CHARACTER, payload: input });
+  };
+};
+
+export const clearFilter = () => {
+  return (dispatch) => {
+    dispatch({ type: CLEAR_FILTER });
   };
 };

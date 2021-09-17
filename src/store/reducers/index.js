@@ -4,11 +4,14 @@ import {
   FETCH_MARVEL_CHARACTER,
   FETCH_CHARACTER,
   EDIT_CHARACTER,
+  FILTERED_CHARACTER,
+  CLEAR_FILTER,
 } from "../types";
 
 const initialState = {
   characters: [],
   singleCharacter: [],
+  filteredCharacter: [],
   isLoading: false,
   error: null,
 };
@@ -45,6 +48,23 @@ const marvelReducer = (state = initialState, { type, payload }) => {
         ...state,
         isLoading: false,
         characters: updatedCharacters,
+      };
+
+    case FILTERED_CHARACTER:
+      const filter = state.characters.filter((character) =>
+        character.name.toLowerCase().includes(payload.input.toLowerCase())
+      );
+      return {
+        ...state,
+        isLoading: false,
+        filteredCharacter: filter,
+      };
+
+    case CLEAR_FILTER:
+      return {
+        ...state,
+        isLoading: false,
+        filteredCharacter: [],
       };
 
     default:

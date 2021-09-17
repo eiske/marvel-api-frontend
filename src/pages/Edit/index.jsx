@@ -4,7 +4,11 @@ import loadable from "@loadable/component";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
-import { editCharacter } from "../../store/actions";
+import {
+  editCharacter,
+  filteredCharacter,
+  clearFilter,
+} from "../../store/actions";
 
 import "./styles.css";
 import SearchBar from "../../components/atom/SearchBar";
@@ -18,12 +22,14 @@ const Edit = ({
   characters,
   submit,
   history,
+  filteredCharacter,
+  filterCharacter,
+  clearFilter,
 }) => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [input, setInput] = useState("");
   const [index, setIndex] = useState(0);
-  const [filteredCharacter, setFilteredCharacter] = useState([]);
 
   const nameInput = useRef();
   const descriptionInput = useRef();
@@ -48,12 +54,14 @@ const Edit = ({
     history.push("/");
   };
 
+  const clear = () => {
+    setInput("");
+    clearFilter();
+  };
+
   const updateInput = async (input) => {
-    const filtered = characters.filter((character) =>
-      character.name.toLowerCase().includes(input.toLowerCase())
-    );
+    filterCharacter({ input });
     setInput(input);
-    setFilteredCharacter(filtered);
   };
 
   const setCharacter = (name) => {
@@ -61,6 +69,7 @@ const Edit = ({
     setName(finded.name);
     setDescription(finded.description);
     setIndex(finded.id);
+    clearFilter();
   };
 
   useEffect(() => {
@@ -76,7 +85,7 @@ const Edit = ({
       <Header title="Edit character data" />
       {!id && !name ? (
         <div className="search-bar">
-          <SearchBar input={input} setKeyword={updateInput} />
+          <SearchBar input={input} setKeyword={updateInput} clear={clear} />
           <CharacterList
             characters={filteredCharacter}
             setCharacter={setCharacter}
@@ -130,10 +139,13 @@ const Edit = ({
 
 const mapStateToProps = (state) => ({
   characters: state.characters,
+  filteredCharacter: state.filteredCharacter,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   submit: (value) => dispatch(editCharacter(value)),
+  filterCharacter: (input) => dispatch(filteredCharacter(input)),
+  clearFilter: () => dispatch(clearFilter()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Edit);
