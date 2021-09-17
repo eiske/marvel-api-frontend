@@ -20,6 +20,7 @@ const Character = ({
   match: {
     params: { id },
   },
+  characters,
   getSingleCharacter,
   singleCharacter,
   isLoading,
@@ -41,9 +42,12 @@ const Character = ({
       setSrcImg(
         `${singleCharacter.thumbnail.path}.${singleCharacter.thumbnail.extension}`
       );
-      setName(singleCharacter.name);
       setSeries(singleCharacter.series.items);
     }
+    const nameById = characters.find(
+      (character) => character.id === parseInt(id, 10)
+    );
+    setName(nameById.name);
   }, [singleCharacter]);
 
   return !isLoading ? (
@@ -80,6 +84,7 @@ const Character = ({
 };
 
 const mapStateToProps = (state) => ({
+  characters: state.characters,
   singleCharacter: state.singleCharacter[0],
   isLoading: state.isLoading,
 });
