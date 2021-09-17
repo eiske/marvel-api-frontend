@@ -10,6 +10,7 @@ import { fetchMarvelCharacter } from "../../store/actions";
 import "./styles.css";
 
 const Header = loadable(() => import("../../components/atom/Header"));
+const SearchBar = loadable(() => import("../../components/atom/SearchBar"));
 
 const MarvelCard = loadable(() =>
   import("../../components/organisms/MarvelCard")
@@ -17,10 +18,26 @@ const MarvelCard = loadable(() =>
 
 const Home = ({ characters, getMarvelCharacter, isLoading }) => {
   const [offset, setOffSet] = useState(0);
+  const [page, setPage] = useState(1);
+  const [input, setInput] = useState("");
+  const [perPage, setPerPage] = useState(20);
+  const [pages, setPages] = useState(0);
+  const [start, setStart] = useState(0);
+  const [end, setEnd] = useState(0);
+  const [dataCharacter, setDataCharacter] = useState([]);
 
-  const renderCharacters = (characters) => (
+  const updateInput = (input) => {
+    setPage(1);
+    setInput(input);
+  };
+
+  const clear = () => {
+    setInput("");
+  };
+
+  const renderCharacters = () => (
     <div className="grid">
-      {characters.map((character) => (
+      {dataCharacter.slice(start, end).map((character) => (
         <Link key={character.id} to={`/character/${character.id}`}>
           <MarvelCard
             name={character.name}
@@ -32,6 +49,16 @@ const Home = ({ characters, getMarvelCharacter, isLoading }) => {
       ))}
     </div>
   );
+
+  useEffect(() => {
+    setPages(Math.ceil(characters.length / perPage));
+    setStart(page * perPage - perPage);
+    setEnd(start + perPage);
+    const data = characters.filter((character) =>
+      character.name.toLowerCase().includes(input.toLowerCase())
+    );
+    setDataCharacter(data);
+  }, [characters, input, page, perPage, start]);
 
   useEffect(() => {
     async function asyncFetchMarvelCharacter(offset, limit) {
@@ -47,7 +74,22 @@ const Home = ({ characters, getMarvelCharacter, isLoading }) => {
       <div className="grid-container">
         <Header title="MARVEL CHARACTER LIST" />
         {!isLoading && characters ? (
-          <>{renderCharacters(characters)}</>
+          <>
+            <SearchBar
+              input={input}
+              placeholder="Search character"
+              setKeyword={updateInput}
+              clear={clear}
+            />
+            {renderCharacters(input)}
+            {input === "" ? (
+              <Pagination
+                count={pages}
+                page={page}
+                onChange={(event, page) => setPage(page)}
+              />
+            ) : null}
+          </>
         ) : (
           <CircularProgress />
         )}
@@ -59,6 +101,7 @@ const Home = ({ characters, getMarvelCharacter, isLoading }) => {
 const mapStateToProps = (state) => ({
   characters: state.characters,
   isLoading: state.isLoading,
+  filteredCharacter: state.filteredCharacter,
 });
 
 const mapDispatchToProps = (dispatch) => ({

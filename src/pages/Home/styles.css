@@ -6,6 +6,7 @@ section.list-characters div.grid-container {
 
 ul.MuiPagination-ul {
   margin: 1rem auto;
+  justify-content: center;
 }
 
 @media screen and (max-width: 768px) {
