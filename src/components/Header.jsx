@@ -34,7 +34,7 @@ const Header = () => {
               onClick={() => setOpen(true)}
             />
             <Drawer
-              classes={{ paper: classes.paper, color: classes.color }}
+              classes={{ paper: classes.paper }}
               open={open}
               onClose={() => setOpen(false)}
             >

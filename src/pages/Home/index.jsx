@@ -47,13 +47,7 @@ const Home = ({ characters, getMarvelCharacter, isLoading }) => {
       <div className="grid-container">
         <Header title="MARVEL CHARACTER LIST" />
         {!isLoading && characters ? (
-          <>
-            {renderCharacters(characters)}
-            {/* <Pagination
-              count={Math.round(1559 / 24)}
-              onChange={(event, page) => handleChange(page)}
-            /> */}
-          </>
+          <>{renderCharacters(characters)}</>
         ) : (
           <CircularProgress />
         )}
