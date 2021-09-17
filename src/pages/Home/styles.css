@@ -1,5 +1,4 @@
 section.list-characters div.grid-container {
-  /* width: 100%; */
   max-width: 1024px;
   padding: 20px 25px;
   margin: 0 auto;
@@ -7,4 +6,10 @@ section.list-characters div.grid-container {
 
 ul.MuiPagination-ul {
   margin: 1rem auto;
+}
+
+@media screen and (max-width: 768px) {
+  section.list-characters div.grid-container {
+    padding: 20px 0;
+  }
 }

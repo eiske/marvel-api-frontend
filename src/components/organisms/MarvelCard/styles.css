@@ -4,6 +4,8 @@ div.marvel-card {
   border-radius: 10px;
   cursor: pointer;
   height: 100%;
+  overflow: hidden;
+  max-width: 240px;
 }
 
 div.marvel-card h4.name {
@@ -19,6 +21,8 @@ div.marvel-card p.description {
   font-size: 0.8rem;
   padding: 5px;
   word-break: break-word;
+  max-height: 100px;
+  overflow-y: scroll;
 }
 
 div.marvel-card h4.name {
