@@ -12,10 +12,6 @@ import Header from "./components/Header";
 
 import marvelReducer from "./store/reducers";
 
-// const rootReducer = combineReducers({
-//   marvel: marvelReducer,
-// });
-
 const store = createStore(marvelReducer, applyMiddleware(thunk));
 
 const App = () => {
